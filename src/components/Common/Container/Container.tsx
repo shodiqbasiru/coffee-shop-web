@@ -8,7 +8,11 @@ function PageContainer({
   children: React.ReactNode;
 }): React.ReactElement {
   return (
-    <Container maxW="xxl" px="42px" {...rest}>
+    <Container
+      maxW={{ base: "100%", lg: "xxl" }}
+      px={{ base: "0", lg: "88px" }}
+      {...rest}
+    >
       {children}
     </Container>
   );

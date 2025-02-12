@@ -6,7 +6,7 @@ import HeroSection from "@/components/Section/Home/Hero";
 
 function Home(): React.ReactElement {
   return (
-    <Box bg="#000" minH="100vh" padding="16px">
+    <Box bg="bgPrimary" minH="100vh" padding="16px" overflowX="hidden">
       <PageContainer>
         <NavigationComponent />
         <HeroSection />

@@ -1,7 +1,56 @@
 import React from "react";
-import { Box, Heading } from "@chakra-ui/react";
+import {
+  Box,
+  Drawer,
+  DrawerBody,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
+  Heading,
+  IconButton,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { TEXT_PROPS } from "@/constant/default-props";
+import { HamburgerIcon } from "@chakra-ui/icons";
 
 function NavigationComponent(): React.ReactElement {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const navLinks = (
+    <Box
+      as="ul"
+      display="flex"
+      flexDir={{ base: "column", md: "row" }}
+      gap="2.5rem"
+      listStyleType="none"
+    >
+      <Box {...TEXT_PROPS.body} as="li" fontSize="20px">
+        Home
+      </Box>
+      <Box {...TEXT_PROPS.body} as="li" fontSize="20px">
+        Menu
+      </Box>
+      <Box {...TEXT_PROPS.body} as="li" fontSize="20px">
+        About
+      </Box>
+      <Box {...TEXT_PROPS.body} as="li" fontSize="20px">
+        Facilities
+      </Box>
+    </Box>
+  );
+
+  const signInButton = (
+    <Box
+      as="button"
+      bg="mainColorText"
+      color="secondaryColorText"
+      padding="8px 16px"
+      borderRadius="8px"
+    >
+      Sign In
+    </Box>
+  );
+
   return (
     <Box
       as="nav"
@@ -9,34 +58,33 @@ function NavigationComponent(): React.ReactElement {
       justifyContent="space-between"
       alignItems="center"
       w="100%"
-      p="16px"
+      p="16px 24px"
       bg="transparent"
       boxShadow="md"
-      border="1px solid #fefefe"
-      color="#fefefe"
+      border="1px solid var(--chakra-colors-bgSecondary)"
+      color="mainColorText"
     >
-      <Heading as="h1" fontSize="28px" fontWeight="700">
-        CoffeeShop
-      </Heading>
-      <Box as="ul" display="flex" gap="2.5rem" listStyleType="none">
-        <Box as="li" fontSize="18px" fontWeight="200">
-          Home
-        </Box>
-        <Box as="li" fontSize="18px" fontWeight="200">
-          Menu
-        </Box>
-        <Box as="li" fontSize="18px" fontWeight="200">
-          About
-        </Box>
-        <Box as="li" fontSize="18px" fontWeight="200">
-          Facilities
-        </Box>
-      </Box>
-      <Box>
-        <Box as="button" bg="#fefefe" color="#000" padding="8px 16px" borderRadius="8px">
-          Sign In
-        </Box>
-      </Box>
+      <Heading {...TEXT_PROPS.heading}>CoffeeShop</Heading>
+      <Box display={{ base: "none", md: "flex" }}>{navLinks}</Box>
+      <Box display={{ base: "none", md: "block" }}>{signInButton}</Box>
+      <IconButton
+        aria-label="Open Menu"
+        icon={<HamburgerIcon />}
+        display={{ base: "flex", md: "none" }}
+        borderRadius="0"
+        onClick={onOpen}
+      />
+
+      <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerHeader borderBottomWidth="1px">CoffeeShop</DrawerHeader>
+          <DrawerBody>
+            {navLinks}
+            <Box mt="1rem">{signInButton}</Box>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
     </Box>
   );
 }
