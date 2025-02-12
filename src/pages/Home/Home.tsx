@@ -3,14 +3,22 @@ import { Box } from "@chakra-ui/react";
 import PageContainer from "@/components/Common/Container/Container";
 import NavigationComponent from "@/components/Common/Navigation/Navigation";
 import HeroSection from "@/components/Section/Home/Hero";
+import BestCoffeeSection from "@/components/Section/Home/BestCoffee";
 
 function Home(): React.ReactElement {
   return (
-    <Box bg="bgPrimary" minH="100vh" padding="16px" overflowX="hidden">
-      <PageContainer>
-        <NavigationComponent />
-        <HeroSection />
-      </PageContainer>
+    <Box overflowX="hidden">
+      <Box bg="bgPrimary" padding="16px">
+        <PageContainer>
+          <NavigationComponent />
+          <HeroSection />
+        </PageContainer>
+      </Box>
+      <Box bg="bgSecondary" overflow="hidden">
+        <PageContainer>
+          <BestCoffeeSection />
+        </PageContainer>
+      </Box>
     </Box>
   );
 }

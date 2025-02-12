@@ -5,20 +5,24 @@ import { FONT_FAMILY } from "@/constant/default-props";
 const theme = {
   fonts: {
     heading: FONT_FAMILY.heading,
+    subHeading: FONT_FAMILY.subHeading,
     body: FONT_FAMILY.body,
   },
   fontSizes: {
     heading: "36px",
+    subHeading: "24px",
     body: "16px",
   },
   fontWeights: {
     heading: 700,
+    subHeading: 400,
     body: 400,
   },
   styles: {
     global: {
       ":root": {
         "--fontItalic-heading": "",
+        "--fontItalic-subHeading": "",
         "--fontItalic-body": "",
       },
     },

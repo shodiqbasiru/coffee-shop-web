@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Button, Heading, Image, Text } from "@chakra-ui/react";
 
-import iconsCoffee from "@/assets/img/coffee.png";
-import { TEXT_PROPS } from "@/constant/default-props";
+import iconsCoffee from "@/assets/icons/coffee.png";
+import { BUTTON_PROPS, TEXT_PROPS } from "@/constant/default-props";
 
 function HeroSection(): React.ReactElement {
   return (
@@ -56,7 +56,7 @@ function HeroSection(): React.ReactElement {
           {...TEXT_PROPS.body}
           fontSize={{ base: "16px", md: "18px" }}
           fontWeight="light"
-          lineHeight="1"
+          lineHeight="1.25"
         >
           Immerse yourself in the rich, bold flavors of our handcrafted
           blends—expertly crafted to awaken your senses, delight your palate,
@@ -66,10 +66,7 @@ function HeroSection(): React.ReactElement {
         </Text>
         <Box mt="4">
           <Button
-            bg="mainColorText"
-            color="secondaryColorText"
-            padding="8px 16px"
-            borderRadius="0"
+            {...BUTTON_PROPS.buttonPrimary}
             width={{ base: "100%", md: "auto" }}
             height={{ base: "auto", md: "48px" }}
             mt="4"
@@ -78,15 +75,10 @@ function HeroSection(): React.ReactElement {
             Order Now
           </Button>
           <Button
-            bg="transparent"
-            color="mainColorText"
-            padding="8px 16px"
-            borderRadius="0"
-            border="1px solid var(--chakra-colors-mainColorText)"
+            {...BUTTON_PROPS.buttonSecondary}
             width={{ base: "100%", md: "auto" }}
             height={{ base: "auto", md: "48px" }}
             mt="4"
-            _hover={{ bg: "mainColorText", color: "secondaryColorText" }}
           >
             Explore More
           </Button>

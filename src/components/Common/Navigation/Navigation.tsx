@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Box,
+  Button,
   Drawer,
   DrawerBody,
   DrawerContent,
@@ -10,7 +11,7 @@ import {
   IconButton,
   useDisclosure,
 } from "@chakra-ui/react";
-import { TEXT_PROPS } from "@/constant/default-props";
+import { BUTTON_PROPS, TEXT_PROPS } from "@/constant/default-props";
 import { HamburgerIcon } from "@chakra-ui/icons";
 
 function NavigationComponent(): React.ReactElement {
@@ -39,17 +40,7 @@ function NavigationComponent(): React.ReactElement {
     </Box>
   );
 
-  const signInButton = (
-    <Box
-      as="button"
-      bg="mainColorText"
-      color="secondaryColorText"
-      padding="8px 16px"
-      borderRadius="8px"
-    >
-      Sign In
-    </Box>
-  );
+  const signInButton = <Button {...BUTTON_PROPS.buttonPrimary}>Sign In</Button>;
 
   return (
     <Box
@@ -58,10 +49,8 @@ function NavigationComponent(): React.ReactElement {
       justifyContent="space-between"
       alignItems="center"
       w="100%"
-      p="16px 24px"
+      p="16px 0"
       bg="transparent"
-      boxShadow="md"
-      border="1px solid var(--chakra-colors-bgSecondary)"
       color="mainColorText"
     >
       <Heading {...TEXT_PROPS.heading}>CoffeeShop</Heading>
