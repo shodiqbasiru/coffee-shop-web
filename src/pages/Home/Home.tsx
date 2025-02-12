@@ -4,6 +4,7 @@ import PageContainer from "@/components/Common/Container/Container";
 import NavigationComponent from "@/components/Common/Navigation/Navigation";
 import HeroSection from "@/components/Section/Home/Hero";
 import BestCoffeeSection from "@/components/Section/Home/BestCoffee";
+import KnowledgeSection from "@/components/Section/Home/Knowledge";
 
 function Home(): React.ReactElement {
   return (
@@ -17,6 +18,11 @@ function Home(): React.ReactElement {
       <Box bg="bgSecondary" overflow="hidden">
         <PageContainer>
           <BestCoffeeSection />
+        </PageContainer>
+      </Box>
+      <Box bg="bgTertiary" overflow="hidden">
+        <PageContainer>
+          <KnowledgeSection />
         </PageContainer>
       </Box>
     </Box>

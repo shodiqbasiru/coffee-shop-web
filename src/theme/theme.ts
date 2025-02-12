@@ -9,7 +9,7 @@ const theme = {
     body: FONT_FAMILY.body,
   },
   fontSizes: {
-    heading: "36px",
+    heading: "38px",
     subHeading: "24px",
     body: "16px",
   },
@@ -30,6 +30,7 @@ const theme = {
   colors: {
     bgPrimary: BG_COLOR.primary,
     bgSecondary: BG_COLOR.secondary,
+    bgTertiary: BG_COLOR.tertiary,
     mainColorText: TEXT_COLOR.primary,
     secondaryColorText: TEXT_COLOR.secondary,
   },

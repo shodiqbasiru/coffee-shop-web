@@ -37,7 +37,7 @@ function BestCoffeeSection(): React.ReactElement {
   ];
 
   return (
-    <Box textAlign="center" py="16" position="relative" minH="100vh">
+    <Box textAlign="center" py="16" position="relative">
       <Image
         src={beanCoffee}
         alt="bean-coffee"
