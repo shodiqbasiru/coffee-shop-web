@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Heading, Image } from "@chakra-ui/react";
+import { Box, Heading, Image, Text } from "@chakra-ui/react";
 
 import { TEXT_PROPS } from "@/constant/default-props";
 import beanCoffee from "@/assets/icons/bean.svg";
@@ -67,12 +67,22 @@ function BestCoffeeSection(): React.ReactElement {
       <Box position="relative" zIndex="2">
         <Heading
           {...TEXT_PROPS.heading}
-          color="mainColorText"
-          fontSize={{ base: "heading", md: "48px" }}
-          mb="24px"
+          color="secondaryColorText"
+          fontSize={{ base: "heading", md: "88px" }}
         >
           Our Best Coffee
         </Heading>
+
+        <Text
+          {...TEXT_PROPS.body}
+          color="secondaryColorText"
+          mb="24px"
+          opacity="0.8"
+          w="50%"
+            mx="auto"
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quas quis eaque excepturi maxime architecto assumenda laboriosam officia voluptatem aut, facere dolorem provident adipisci dolor!
+        </Text>
 
         <Box
           display="flex"
