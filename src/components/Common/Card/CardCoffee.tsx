@@ -23,7 +23,13 @@ export interface CoffeeCardProps {
 
 function CardCoffee(item: CoffeeCardProps): React.ReactElement {
   return (
-    <Card maxW="400px" w="100%" overflow="hidden" borderRadius="24px">
+    <Card
+      maxW="400px"
+      w="100%"
+      height="100%"
+      overflow="hidden"
+      borderRadius="24px"
+    >
       <CardHeader padding="0" overflow="hidden" h="300px">
         <Image
           src={item?.imgUrl}

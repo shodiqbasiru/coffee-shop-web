@@ -39,7 +39,7 @@ function KnowledgeSection(): React.ReactElement {
         alignItems="center"
         gap="16"
         mt="16"
-        w="80%"
+        w={{ base: "100%", md: "80%" }}
         mx="auto"
       >
         {items.map((item, index) => (
@@ -49,16 +49,22 @@ function KnowledgeSection(): React.ReactElement {
             w="100%"
             justifyContent="center"
             alignItems="center"
-            flexDir={item.isReverse ? "row-reverse" : "row"}
-            gap="64px"
+            flexDir={{
+              base: "column",
+              md: item.isReverse ? "row-reverse" : "row",
+            }}
+            gap={{ base: "16px", md: "64px" }}
           >
-            <Box w="50%">
+            <Box w={{ base: "100%", md: "50%" }}>
               <Box
                 w={{ base: "300px", md: "500px" }}
                 h={{ base: "300px", md: "500px" }}
                 borderRadius="50%"
                 overflow="hidden"
-                margin={item.isReverse ? "0 auto 0 0" : "0 0 0 auto"}
+                margin={{
+                  base: "0 auto",
+                  md: item.isReverse ? "0 auto 0 0" : "0 0 0 auto",
+                }}
               >
                 <Image
                   src={item.url}
@@ -75,12 +81,19 @@ function KnowledgeSection(): React.ReactElement {
               </Box>
             </Box>
 
-            <Box w="50%">
+            <Box
+              w={{ base: "100%", md: "50%" }}
+              padding={{ base: "0 16px", md: "0" }}
+            >
               <Heading
                 {...TEXT_PROPS.heading}
                 color="secondaryColorText"
-                textAlign={item.isReverse ? "right" : "left"}
+                textAlign={{
+                  base: "left",
+                  md: item.isReverse ? "right" : "left",
+                }}
                 fontSize={{ base: "heading", md: "58px" }}
+                mb={{ base: "16px", md: "0" }}
               >
                 {item.title}
               </Heading>
@@ -89,7 +102,10 @@ function KnowledgeSection(): React.ReactElement {
                   {...TEXT_PROPS.body}
                   color="secondaryColorText"
                   fontSize="20px"
-                  textAlign={item.isReverse ? "right" : "left"}
+                  textAlign={{
+                    base: "left",
+                    md: item.isReverse ? "right" : "left",
+                  }}
                 >
                   {item.description}
                 </Heading>

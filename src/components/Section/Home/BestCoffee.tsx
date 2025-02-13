@@ -1,11 +1,20 @@
-import React from "react";
-import { Box, Heading, Image, Text } from "@chakra-ui/react";
+import React, { useRef } from "react";
+import { Box, Button, Heading, Image, Text } from "@chakra-ui/react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper as SwiperType } from "swiper";
+import { Navigation } from "swiper/modules";
+import "swiper/swiper-bundle.css";
 
-import { TEXT_PROPS } from "@/constant/default-props";
+import { BUTTON_PROPS, TEXT_PROPS } from "@/constant/default-props";
 import beanCoffee from "@/assets/icons/bean.svg";
+import beans from "@/assets/icons/beans.png";
 import CardCoffee from "@/components/Common/Card/CardCoffee";
+import NextButton from "@/components/Common/Button/NextButton";
+import PrevButton from "@/components/Common/Button/PrevButton";
 
 function BestCoffeeSection(): React.ReactElement {
+  const swiperRef = useRef<SwiperType | null>(null);
+
   const bestCoffeeItem = [
     {
       imgUrl:
@@ -37,7 +46,12 @@ function BestCoffeeSection(): React.ReactElement {
   ];
 
   return (
-    <Box textAlign="center" py="16" position="relative">
+    <Box
+      textAlign="center"
+      pt="32px"
+      pb={{ base: "0", md: "32px" }}
+      position="relative"
+    >
       <Image
         src={beanCoffee}
         alt="bean-coffee"
@@ -78,22 +92,102 @@ function BestCoffeeSection(): React.ReactElement {
           color="secondaryColorText"
           mb="24px"
           opacity="0.8"
-          w="50%"
-            mx="auto"
+          w={{ base: "100%", md: "50%" }}
+          mx="auto"
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quas quis eaque excepturi maxime architecto assumenda laboriosam officia voluptatem aut, facere dolorem provident adipisci dolor!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
+          quas quis eaque excepturi maxime architecto assumenda laboriosam
+          officia voluptatem aut, facere dolorem provident adipisci dolor!
         </Text>
 
         <Box
           display="flex"
-          gap="16px"
-          flexWrap="wrap"
-          justifyContent="center"
-          p="16px"
+          justifyContent="space-between"
+          pt="16px"
+          flexDir={{ base: "column", md: "row" }}
         >
-          {bestCoffeeItem.map((item, index) => (
-            <CardCoffee key={index} {...item} />
-          ))}
+          <Box w={{ base: "100%", md: "calc(50% - 24px)" }} px="16px">
+            <Swiper
+              modules={[Navigation]}
+              slidesPerView={1}
+              spaceBetween={10}
+              breakpoints={{
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 8,
+                },
+              }}
+              loop={true}
+              onSwiper={(swiper: SwiperType) => (swiperRef.current = swiper)}
+              onSlideChange={() => console.log("slide change")}
+            >
+              {bestCoffeeItem.map((item, index) => (
+                <SwiperSlide style={{ height: "auto" }}>
+                  <CardCoffee key={index} {...item} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            <Box display="flex" gap="16px" justifyContent="center" mt="32px">
+              <PrevButton swiperRef={swiperRef} />
+              <NextButton swiperRef={swiperRef} />
+            </Box>
+          </Box>
+          {/* <Box flex="1" display="flex" gap="16px" flexWrap="wrap">
+            {bestCoffeeItem.map((item, index) => (
+              <CardCoffee key={index} {...item} />
+            ))}
+          </Box> */}
+          <Box
+            textAlign="center"
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            flexDir={{ base: "column-reverse", md: "row" }}
+          >
+            <Box
+              width={{ base: "100%", md: "50%" }}
+              height="100%"
+              mt={{ base: "-8rem", md: "0" }}
+            >
+              <Image
+                width="100%"
+                height="100%"
+                src={beans}
+                alt="beans"
+                objectFit="cover"
+                objectPosition="left"
+                transform={{
+                  base: "rotate(270deg)",
+                  md: "rotate(0deg)",
+                }}
+              />
+            </Box>
+
+            <Box
+              width={{ base: "100%", md: "50%" }}
+              p={{ base: "16px", md: "0" }}
+              mt={{ base: "16px", md: "0" }}
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              alignItems={{ base: "center", md: "flex-start" }}
+            >
+              <Text
+                {...TEXT_PROPS.subHeading}
+                fontSize={{ base: "24px", md: "subHeading" }}
+                fontWeight="bold"
+                mb="16px"
+                textAlign={{ base: "center", md: "left" }}
+              >
+                Discover our full range of exquisite coffee blends and find your
+                new favorite. From classic brews to unique flavors, we have
+                something for every coffee lover.
+              </Text>
+              <Button {...BUTTON_PROPS.buttonSecondary} alignItems="flex-start">
+                View All Coffee
+              </Button>
+            </Box>
+          </Box>
         </Box>
       </Box>
     </Box>
