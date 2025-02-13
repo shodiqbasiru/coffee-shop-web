@@ -1,10 +1,12 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
+
 import PageContainer from "@/components/Common/Container/Container";
 import NavigationComponent from "@/components/Common/Navigation/Navigation";
 import HeroSection from "@/components/Section/Home/Hero";
 import BestCoffeeSection from "@/components/Section/Home/BestCoffee";
 import KnowledgeSection from "@/components/Section/Home/Knowledge";
+import FacilitySection from "@/components/Section/Home/Facility";
 
 function Home(): React.ReactElement {
   return (
@@ -24,6 +26,9 @@ function Home(): React.ReactElement {
         <PageContainer>
           <KnowledgeSection />
         </PageContainer>
+      </Box>
+      <Box bg="bgSecondary" overflow="hidden">
+        <FacilitySection />
       </Box>
     </Box>
   );

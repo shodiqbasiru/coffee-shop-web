@@ -82,7 +82,7 @@ function BestCoffeeSection(): React.ReactElement {
         <Heading
           {...TEXT_PROPS.heading}
           color="secondaryColorText"
-          fontSize={{ base: "heading", md: "88px" }}
+          fontSize={{ base: "heading", md: "58px" }}
         >
           Our Best Coffee
         </Heading>

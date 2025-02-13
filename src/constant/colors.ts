@@ -4,6 +4,9 @@ export const BG_COLOR = {
     // tertiary : "#E8C715",
     // tertiary : "#E84B15",
     tertiary : "#E8AD15",
+    // surface: "#F5F5F5",       // Warna permukaan
+    // background: "#FFFFFF",    // Warna latar belakang
+    // overlay: "rgba(0, 0, 0, 0.5)", // Warna overlay
 }
 
 export const TEXT_COLOR ={
